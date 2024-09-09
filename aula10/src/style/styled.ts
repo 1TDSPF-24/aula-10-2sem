@@ -66,3 +66,39 @@ export const ImgProdutos = styled.img`
   width:20%;
   margin:0 auto;
 `
+export const MinhaTabela = styled.table`
+  width: 80vw;
+  margin: 0 auto;
+  border: 2px solid #000000;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  &
+  text-shadow{
+    background-color: #c1c1c1c1;
+      & th{
+        border: 2px solid #000000;
+      }
+
+  }
+  & tbody{
+    background-color: #c1c1c1c1;
+    &td{
+      border: 2px solid #000000;
+    }
+    & tr:nth-child(even){
+      background-color: #c1c1c1c1;
+    }
+    & tr:nth-child(odd){
+      background-color: #cccccc;
+    }
+    tr:hover{
+      background-color: #b1b2c3;
+    }
+    & tfoot{
+      border: 2px solid #000000;
+      text-align: center;
+    }
+  }
+  
+`
