@@ -1,31 +1,35 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { TipoListaObj } from "../../types";
 
 export default function EditarProdutos() {
 
   //MUDANDO O TÍTULO DA PÁGINA!!!
   document.title = "EDITAR PRODUTOS";
 
-  //Realizando um destructuring para recuperar o parâmetro que foi passado na rota:
-  //Ex: Se a rota criada foi: /meus-dados/:dados
-  //O destructuring irá recuperar o dado que foi passado na rota e atribuir a propriedade de um elemento cuja o nome é aquele criado na rota, antes do dois pontos,ou seja, (:dados)
-  //Então teriamos que realizar a seguinte ação para receber esta informação.
-  // const{dados} = useParams(), um detalhe aqui é que o useParams() pertence ao react-router e deve ser importado dele
   const { id } = useParams();
 
-  useEffect(() => {
-    console.log("O ID foi atualizado : ", id)
-  }, [id])
+  const listaProdutosString = localStorage.getItem("lista") || '[]';
+  const lista: TipoListaObj[] = JSON.parse(listaProdutosString);
 
-  useEffect(() => {
-    console.log("Monitorando o componente apenas uma vez...")
-  }, [])
+  const objProduto = lista.find((p) => p.id == Number(id));
 
-  useEffect(() => {
-    console.log("Monitorando o componente todas as vezes...", contador)
-  })
-
+  /*o valor do contador utilizado com o useState é atualizado na tela, enquanto a utilização do let normal não atualiza*/
   const [contador, setContador] = useState(0);
+
+  let contador2 = 0;
+
+  const setContador2 = () => {
+    contador2 = contador2 + 1;
+  }
+
+  /*useEffect(): utilizado para monitorar elementos */
+  useEffect(() => {
+    console.log(objProduto);
+    console.log(contador);
+  }, [objProduto, contador]);
+  /*[]: valor a ser monitorado*/
+
 
   return (
     <div>
@@ -33,8 +37,17 @@ export default function EditarProdutos() {
       <div>
         <h2>ID: {id}</h2>
         <div>
-          <button onClick={() => setContador(contador + 1)}>Contador - {contador}</button>
+          <button onClick={() => setContador(contador + 1)}>Contador : {contador}</button>
         </div>
+        <div>
+          <button onClick={() => setContador2()}>Contador 2 : {contador2}</button>
+        </div>
+        <form>
+          <div>
+            <label htmlFor="">Nome</label>
+            <input type="text" name="nome" /> {/*o nome inserido dentro de "name" DEVE ser igual ao nome do atributo*/}
+          </div>
+        </form>
       </div>
     </div>
   );
