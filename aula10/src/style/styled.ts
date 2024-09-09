@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const MeuH1 = styled.h1`
     background-color: blueviolet;
@@ -65,4 +65,50 @@ export const ImgProdutos = styled.img`
   max-width:100%;
   width:20%;
   margin:0 auto;
+`
+
+export const MinhaTabela = styled.table`
+  border-collapse:collapse;
+  width: 80vw;
+  margin:0 auto;
+  border: 2px solid #000000;
+  font-size:24px;
+  font-family:Arial, Helvetica, sans-serif;
+
+  &
+  thead{
+    background-color:#c1c1c1;
+     & th{
+      border:2px solid #000000;
+     }
+  }
+
+  & tbody{
+    background-color:#e1e1e1;
+      & td{
+        border:2px solid #000000;
+      }
+
+      & tr:nth-child(even){
+        background-color:#c1c1c1;
+      }
+      & tr:nth-child(odd){
+        background-color:#d3cdcd;
+      }
+
+      tr:hover{
+      background-color:#b1b2c3;
+    }
+   }
+    
+¨
+&tfoot{
+  background-color:#c1c1c1;
+  %td{
+    border:2px solid #000000;
+    text-align:center;
+  }
+}
+
+
 `
