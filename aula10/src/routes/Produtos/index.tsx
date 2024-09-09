@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { ImgProdutos } from "../../style/styled";
+import { ImgProdutos, MinhaTabela } from "../../style/styled";
 import { useState } from "react";
 import { TipoListaObj } from "../../types";
-import { listaProdutos } from "../../listaProdutos";
+import  "../../listaProdutos";
 
 export default function Produtos(){ 
 
@@ -16,7 +16,7 @@ export default function Produtos(){
     return(
       <div>
         <h1>Lista de Produtos!</h1>
-        <table>
+        <MinhaTabela>
           <thead>
             <tr>
               <th>Nome</th>
@@ -50,7 +50,7 @@ export default function Produtos(){
               </td>
             </tr>
           </tfoot>
-        </table>
+        </MinhaTabela>
       </div>
     );
   }
