@@ -15,6 +15,48 @@ export const Header = styled.header`
   color: white;
   font-size: 1.5em;
 `
+export const MinhaTabela = styled.table`
+  width: 80vw;
+  margin: 0 auto;
+  border: 2px solid #000000;
+  font-size: 24px;
+  font-family: 'Courier New', Courier, monospace;
+
+  & 
+  thead{ 
+    background-color: aliceblue;
+    & th {
+      border: 2px solid #000000;
+    }
+  }
+
+  & tbody 
+  {
+    background-color: white;
+    & td
+    {
+      border: 2px solid red;
+    }
+
+    // Aplicando para impares
+    & tr:nth-child(even)
+  {
+    background-color: beige;
+  }
+
+   // Aplicando para pares
+  & tr:nth-child(odd)
+  {
+    background-color: #000000;
+  }
+
+  & tr:hover
+  {
+    background-color: aqua;
+  }
+
+  }
+`
 
 // Estilizando o Footer
 export const Footer = styled.footer`
